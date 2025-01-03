@@ -2,7 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iBV-B3-kWM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IHr-Z4-u8T">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IHr-Z4-u8T">
                                             <rect key="frame" x="16" y="8" width="134" height="134"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IHr-Z4-u8T" secondAttribute="height" multiplier="1:1" id="AgW-Bq-sNM"/>
@@ -46,10 +47,22 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AA-az-yvI">
+                                            <rect key="frame" x="16" y="8" width="40" height="40"/>
+                                            <color key="backgroundColor" name="DEDEDE"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="73D-rm-3MG"/>
+                                                <constraint firstAttribute="width" constant="40" id="EsB-0Q-m3t"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Button" image="eraser" catalog="system"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="8AA-az-yvI" firstAttribute="top" secondItem="IHr-Z4-u8T" secondAttribute="top" id="7ow-Ji-uQe"/>
                                         <constraint firstItem="ctk-k7-W9a" firstAttribute="centerY" secondItem="XFS-6H-4hF" secondAttribute="centerY" id="K5i-65-Ac9"/>
                                         <constraint firstAttribute="bottom" secondItem="IHr-Z4-u8T" secondAttribute="bottom" constant="8" id="Mew-aK-yy7"/>
+                                        <constraint firstItem="8AA-az-yvI" firstAttribute="leading" secondItem="IHr-Z4-u8T" secondAttribute="leading" id="UtW-lt-AKC"/>
                                         <constraint firstItem="ctk-k7-W9a" firstAttribute="leading" secondItem="IHr-Z4-u8T" secondAttribute="trailing" constant="16" id="cOg-24-jNZ"/>
                                         <constraint firstItem="IHr-Z4-u8T" firstAttribute="leading" secondItem="XFS-6H-4hF" secondAttribute="leading" constant="16" id="dUe-9j-ysV"/>
                                         <constraint firstItem="IHr-Z4-u8T" firstAttribute="top" secondItem="XFS-6H-4hF" secondAttribute="top" constant="8" id="eBn-Sz-eaB"/>
@@ -57,6 +70,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="likeButton" destination="8AA-az-yvI" id="jJG-j7-hOq"/>
                                     <outlet property="messageLabel" destination="h3r-Cd-jOX" id="eUU-Tc-aUY"/>
                                     <outlet property="nameLabel" destination="QVL-ys-aeI" id="k4I-1k-Hhj"/>
                                     <outlet property="profileImageView" destination="IHr-Z4-u8T" id="phs-hj-qT6"/>
@@ -75,6 +89,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="eraser" catalog="system" width="128" height="119"/>
+        <namedColor name="DEDEDE">
+            <color red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
