@@ -22,9 +22,15 @@ class MagazineInfoTableViewCell: UITableViewCell {
         configureSubviews()
     }
     
+    // 이게 언제 호출될까 스토리 보드 사용시 호출된다는 거 이외로도 심화되게 공부하기
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // 이건 뭘까 이것도 알아보자
+    //    override class func awakeFromNib() {
+    //        
+    //    }
     
     private func configureSubviews() {
         travelImageView.cornerRadius()
