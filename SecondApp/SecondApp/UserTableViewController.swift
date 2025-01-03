@@ -16,7 +16,7 @@ struct Friend {
 
 class UserTableViewController: UITableViewController {
     
-    let friends = FriendsInfo().list
+    var friends = FriendsInfo().list
     
     let name = ["고래밥", "칙촉", "카스타드"]
     let message = ["고래밥 냠냠", "행복한 하루", "배고파"]
@@ -32,9 +32,9 @@ class UserTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user-cell-identifier", for: indexPath) as! UserTableViewCell
-        cell.profileImageView.backgroundColor = .brown
         
         let friend = friends[indexPath.row]
+        cell.profileImageView.backgroundColor = .brown
         
         // 데이터 기준 판단
         if let imageStr = friend.profile_image {
@@ -46,6 +46,10 @@ class UserTableViewController: UITableViewController {
         
         let likeImageName = friend.like ? "star.fill" : "star"
         cell.likeButton.setImage(UIImage(systemName: likeImageName), for: .normal)
+        // 버튼을 구분 짓기 위해 tag로 분류
+        cell.likeButton.tag = indexPath.row
+        // Function Types 함수는 일급 객체
+        cell.likeButton.addTarget(self, action: #selector(likeButtonDidTapped), for: .touchUpInside)
         
         cell.nameLabel.text = friend.name
         cell.messageLabel.text = friend.message
@@ -60,5 +64,10 @@ class UserTableViewController: UITableViewController {
         return 100
     }
     
-    
+    @objc func likeButtonDidTapped(_ sender: UIButton) {
+        // 데이터 기준 판단하고 그 후 뷰를 그리자
+        friends[sender.tag].like.toggle()
+        let indePath = IndexPath(row: sender.tag, section: 0)
+        tableView.reloadRows(at: [indePath], with: .automatic)
+    }
 }
