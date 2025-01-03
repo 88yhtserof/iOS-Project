@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        posterImageView.image = UIImage(named: "a")
         if let url = URL(string: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTSiTLV4G58sJnkEObdxRf6TgRDq0Zd42qQXc73rND_nTa93suDjxjEv_141XMKPcimuJGALyY") {
             posterImageView.kf.setImage(with: url)
         } else {
