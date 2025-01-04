@@ -15,31 +15,26 @@ class MagazineInfoTableViewCell: UITableViewCell {
     
     static let identifier = "magazine-info-cell"
     
-    // 이 생성자 알아보기
-    // reuseIdentifier가 뭘까. 그냥 부모 생성자의 인자로 리터럴 값을 할당해도 될까.
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
         configureSubviews()
+        
     }
-    
-    // 이게 언제 호출될까 스토리 보드 사용시 호출된다는 거 이외로도 심화되게 공부하기
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // 이건 뭘까 이것도 알아보자
-    //    override class func awakeFromNib() {
-    //        
-    //    }
     
     private func configureSubviews() {
+        travelImageView.backgroundColor = .lightGray
         travelImageView.cornerRadius()
-        titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        travelImageView.contentMode = .scaleAspectFill
+        
+        titleLabel.font = .systemFont(ofSize: 23, weight: .heavy)
         titleLabel.numberOfLines = 2
         titleLabel.textColor = .black
-        subtitleLabel.font = .systemFont(ofSize: 10, weight: .light)
-        titleLabel.textColor = .gray
-        dateLabel.textColor = .lightGray
-        dateLabel.font = .systemFont(ofSize: 8, weight: .light)
+        
+        subtitleLabel.font = .systemFont(ofSize: 18, weight: .regular)
+        subtitleLabel.textColor = .gray
+        
+        dateLabel.textColor = .gray
+        dateLabel.font = .systemFont(ofSize: 15, weight: .regular)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MagazineInfoViewController: UITableViewController {
     
@@ -13,6 +14,8 @@ class MagazineInfoViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.separatorStyle = .none
     }
 }
 
@@ -28,10 +31,19 @@ extension MagazineInfoViewController {
             return UITableViewCell()
         }
         
+        let magazine = magazines[indexPath.row]
+        
+        let imagStr = magazine.photo_image
+        if let url = URL(string: imagStr) {
+            cell.travelImageView.kf.setImage(with: url)
+        } else {
+            cell.travelImageView.image = UIImage(systemName: "photo")
+        }
+        
+        cell.titleLabel.text = magazine.title
+        cell.subtitleLabel.text = magazine.subtitle
+        cell.dateLabel.text = magazine.date_description
+        
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
 }
