@@ -9,10 +9,16 @@ import UIKit
 
 class TravelInfoTableViewController: UITableViewController {
     
-    private let travels = Travel.samples
+    private var travels = Travel.samples
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @objc func likeButtonDidTapped(_ sender: UIButton) {
+        let row = sender.tag
+        travels[row].like?.toggle()
+        tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
     }
 
 }
@@ -33,6 +39,8 @@ extension TravelInfoTableViewController {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.identifier) as? TravelInfoTableViewCell else { return UITableViewCell() }
             cell.configure(with: travel)
+            cell.likeButton.tag = indexPath.row
+            cell.likeButton.addTarget(self, action: #selector(likeButtonDidTapped), for: .touchUpInside)
             return cell
         }
     }
