@@ -22,6 +22,7 @@
                     <connections>
                         <segue destination="dg7-Cl-ILX" kind="relationship" relationship="viewControllers" id="d0f-d9-VTL"/>
                         <segue destination="dUM-g3-Lpd" kind="relationship" relationship="viewControllers" id="A6F-f2-44y"/>
+                        <segue destination="XPv-uu-5mZ" kind="relationship" relationship="viewControllers" id="BFA-Hp-42O"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwM-Vx-dtf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,6 +315,97 @@
             </objects>
             <point key="canvasLocation" x="1759.5419847328244" y="666.90140845070425"/>
         </scene>
+        <!--쇼핑-->
+        <scene sceneID="6DV-3P-spv">
+            <objects>
+                <tableViewController id="JOD-TP-Qj7" customClass="ShoppingTableViewController" customModule="Travel_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eig-rv-H0C">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="shopping-cell" rowHeight="65" id="kaR-lE-bEQ" customClass="ShoppingTableViewCell" customModule="Travel_Project" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kaR-lE-bEQ" id="frJ-nd-uVz">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlT-Ao-ift">
+                                            <rect key="frame" x="8" y="8" width="377" height="49"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="x7X-ZT-SHT">
+                                                    <rect key="frame" x="8" y="8" width="361" height="33"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bb9-Id-j2F">
+                                                            <rect key="frame" x="0.0" y="0.0" width="308" height="33"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mP-va-y83">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="4mP-va-y83" secondAttribute="height" multiplier="1:1" id="54g-eR-fSj"/>
+                                                                    </constraints>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal">
+                                                                        <imageReference key="image" image="checkmark.square" catalog="system" symbolScale="large"/>
+                                                                    </state>
+                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOm-mO-eEE">
+                                                                    <rect key="frame" x="53" y="0.0" width="255" height="33"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNA-2L-N6O">
+                                                            <rect key="frame" x="328" y="0.0" width="33" height="33"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="bNA-2L-N6O" secondAttribute="height" multiplier="1:1" id="vGe-cP-bxJ"/>
+                                                            </constraints>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal">
+                                                                <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="x7X-ZT-SHT" firstAttribute="leading" secondItem="jlT-Ao-ift" secondAttribute="leading" constant="8" id="OAJ-bG-MLr"/>
+                                                <constraint firstItem="x7X-ZT-SHT" firstAttribute="top" secondItem="jlT-Ao-ift" secondAttribute="top" constant="8" id="Qyf-px-H4D"/>
+                                                <constraint firstAttribute="bottom" secondItem="x7X-ZT-SHT" secondAttribute="bottom" constant="8" id="RzX-es-Vvg"/>
+                                                <constraint firstAttribute="trailing" secondItem="x7X-ZT-SHT" secondAttribute="trailing" constant="8" id="twM-Wd-3n5"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jlT-Ao-ift" firstAttribute="leading" secondItem="frJ-nd-uVz" secondAttribute="leading" constant="8" id="UVU-v0-Hub"/>
+                                        <constraint firstAttribute="bottom" secondItem="jlT-Ao-ift" secondAttribute="bottom" constant="8" id="X3Z-kU-98E"/>
+                                        <constraint firstItem="jlT-Ao-ift" firstAttribute="top" secondItem="frJ-nd-uVz" secondAttribute="top" constant="8" id="rFI-CJ-4DV"/>
+                                        <constraint firstAttribute="trailing" secondItem="jlT-Ao-ift" secondAttribute="trailing" constant="8" id="rud-x1-lSK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="backgroundColorView" destination="jlT-Ao-ift" id="g0F-Mk-baq"/>
+                                    <outlet property="bookmarkButton" destination="bNA-2L-N6O" id="34A-PC-PDP"/>
+                                    <outlet property="checkButton" destination="4mP-va-y83" id="d8Y-8I-DYN"/>
+                                    <outlet property="titleLabel" destination="SOm-mO-eEE" id="5AV-xY-WXk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JOD-TP-Qj7" id="05O-8a-03l"/>
+                            <outlet property="delegate" destination="JOD-TP-Qj7" id="rHa-qa-D3c"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="쇼핑" id="2oD-9c-vfZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fi-JT-PXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759.5419847328244" y="1388.7323943661972"/>
+        </scene>
         <!--MagazineInfo-->
         <scene sceneID="o5Y-e0-NoS">
             <objects>
@@ -354,8 +446,28 @@
             </objects>
             <point key="canvasLocation" x="832.82442748091603" y="666.90140845070425"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="j14-5h-Mwr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XPv-uu-5mZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="10F-tZ-qyp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkx-f1-LSd">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JOD-TP-Qj7" kind="relationship" relationship="rootViewController" id="G0U-9o-q8X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8TI-6h-k1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="1389"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="magazine" catalog="system" width="110" height="128"/>
         <image name="magazine.fill" catalog="system" width="110" height="128"/>
