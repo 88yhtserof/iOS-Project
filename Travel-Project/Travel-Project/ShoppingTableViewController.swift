@@ -77,4 +77,15 @@ extension ShoppingTableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let row = indexPath.row
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { action, view, success in
+            self.shoppings.remove(at: row)
+            self.tableView.reloadData()
+            success(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
