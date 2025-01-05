@@ -37,6 +37,23 @@ class ShoppingTableViewController: UITableViewController {
         view.endEditing(true)
     }
     
+    @objc func checkButtonDidTapped(_ sender: UIButton) {
+        let row = sender.tag
+        shoppings[row].check.toggle()
+        tableViewReload(at: row)
+    }
+    
+    @objc func bookmarkButtonDidTapped(_ sender: UIButton) {
+        let row = sender.tag
+        shoppings[row].bookmark.toggle()
+        tableViewReload(at: row)
+    }
+    
+    private func tableViewReload(at row: Int) {
+        let indexPath = IndexPath(row: row, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
 }
 
 //MARK: - TableView Method
@@ -49,8 +66,14 @@ extension ShoppingTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingTableViewCell.identifier) as? ShoppingTableViewCell else { return UITableViewCell() }
         
-        let shopping = shoppings[indexPath.row]
+        let row = indexPath.row
+        let shopping = shoppings[row]
         cell.configure(with: shopping)
+        
+        [ cell.checkButton, cell.bookmarkButton ]
+            .forEach{ $0?.tag = row }
+        cell.checkButton.addTarget(self, action: #selector(checkButtonDidTapped), for: .touchUpInside)
+        cell.bookmarkButton.addTarget(self, action: #selector(bookmarkButtonDidTapped), for: .touchUpInside)
         
         return cell
     }
