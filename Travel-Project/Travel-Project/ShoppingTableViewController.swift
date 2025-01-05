@@ -8,15 +8,35 @@
 import UIKit
 
 class ShoppingTableViewController: UITableViewController {
+    @IBOutlet var tableHeaderView: UIView!
+    @IBOutlet var addTextField: UITextField!
     
     private var shoppings = Shopping.samples
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureSubviews()
+    }
+    
+    private func configureSubviews() {
         tableView.separatorStyle = .none
         tableView.rowHeight = 80
+        tableHeaderView.cornerRadius(5)
     }
+    
+    @IBAction func addTextFieldDidEndOnExit(_ sender: UITextField) {
+        view.endEditing(true)
+    }
+    
+    @IBAction func addButtonDidTapped(_ sender: UIButton) {
+        guard let text = addTextField.text else { return }
+        let shopping = Shopping(title: text)
+        shoppings.append(shopping)
+        tableView.reloadData()
+        view.endEditing(true)
+    }
+    
 }
 
 //MARK: - TableView Method
