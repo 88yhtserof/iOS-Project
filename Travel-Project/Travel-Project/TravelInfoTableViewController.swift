@@ -24,22 +24,24 @@ extension TravelInfoTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.identifier) as? TravelInfoTableViewCell else {
-            print("Failed to cast cell")
-            return UITableViewCell()
-        }
-        
         let travel = travels[indexPath.row]
-        if travel.ad {
-            // 광고 cell 적용
-        } else {
-            cell.configure(with: travel)
-        }
         
-        return cell
+        if travel.ad {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TravelAdTableViewCell.identifier) as? TravelAdTableViewCell else { return UITableViewCell() }
+            cell.configure(with: travel)
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TravelInfoTableViewCell.identifier) as? TravelInfoTableViewCell else { return UITableViewCell() }
+            cell.configure(with: travel)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        if travels[indexPath.row].ad {
+            return 100
+        } else {
+            return 150
+        }
     }
 }
