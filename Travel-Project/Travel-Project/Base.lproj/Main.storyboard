@@ -132,11 +132,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vXr-yt-a2H">
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vXr-yt-a2H">
                                             <rect key="frame" x="28" y="19" width="353" height="123"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Z27-pa-sNA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="88.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="155.33333333333334" height="88.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPM-13-3Gm">
                                                             <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
@@ -228,7 +228,6 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="vXr-yt-a2H" firstAttribute="top" secondItem="vXf-k1-qVY" secondAttribute="topMargin" constant="8" id="656-nh-15Z"/>
-                                        <constraint firstItem="YjT-dx-M8x" firstAttribute="height" secondItem="vXf-k1-qVY" secondAttribute="height" multiplier="0.763975" id="6P5-p0-EWL"/>
                                         <constraint firstItem="vXr-yt-a2H" firstAttribute="trailing" secondItem="vXf-k1-qVY" secondAttribute="trailingMargin" constant="8" id="TEe-Yi-vBh"/>
                                         <constraint firstItem="vXr-yt-a2H" firstAttribute="leading" secondItem="vXf-k1-qVY" secondAttribute="leadingMargin" constant="8" id="XiK-Z6-Vf6"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vXr-yt-a2H" secondAttribute="bottom" constant="8" id="t0Y-ZB-xAC"/>
