@@ -17,17 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="hex-Qw-Xcd" kind="relationship" relationship="viewControllers" id="d0f-d9-VTL"/>
-                        <segue destination="CXZ-Xf-8Or" kind="relationship" relationship="viewControllers" id="A6F-f2-44y"/>
+                        <segue destination="dg7-Cl-ILX" kind="relationship" relationship="viewControllers" id="d0f-d9-VTL"/>
+                        <segue destination="dUM-g3-Lpd" kind="relationship" relationship="viewControllers" id="A6F-f2-44y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwM-Vx-dtf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>
-        <!--Item-->
+        <!--SeSAC TRAVEL-->
         <scene sceneID="EcN-ig-cKk">
             <objects>
                 <tableViewController id="hex-Qw-Xcd" customClass="MagazineInfoViewController" customModule="Travel_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,13 +110,13 @@
                             <outlet property="delegate" destination="hex-Qw-Xcd" id="71F-oB-vP8"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="aSp-gF-9gU"/>
+                    <navigationItem key="navigationItem" title="SeSAC TRAVEL" id="nZI-Fk-sE8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2UX-uv-dWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="832.82442748091603" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="1759.5419847328244" y="-34.507042253521128"/>
         </scene>
-        <!--Item-->
+        <!--도시 정보-->
         <scene sceneID="P82-Ob-ozm">
             <objects>
                 <tableViewController id="CXZ-Xf-8Or" customClass="TravelInfoTableViewController" customModule="Travel_Project" customModuleProvider="target" sceneMemberID="viewController">
@@ -308,16 +309,60 @@
                             <outlet property="delegate" destination="CXZ-Xf-8Or" id="AfT-O8-mKG"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="ckn-cb-rKV"/>
+                    <navigationItem key="navigationItem" title="도시 정보" id="aTb-cj-P5B"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GN3-cE-TbF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759.5419847328244" y="666.90140845070425"/>
+        </scene>
+        <!--MagazineInfo-->
+        <scene sceneID="o5Y-e0-NoS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dg7-Cl-ILX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="MagazineInfo" selectedImage="magazine.fill" catalog="system" id="aSp-gF-9gU">
+                        <imageReference key="image" image="magazine" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YyN-Ri-z7M">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hex-Qw-Xcd" kind="relationship" relationship="rootViewController" id="YoR-gD-Ohx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1mZ-mU-lFD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832.82442748091603" y="-34.507042253521128"/>
+        </scene>
+        <!--TravelInfo-->
+        <scene sceneID="vEq-Gg-SYK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dUM-g3-Lpd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TravelInfo" image="suitcase" catalog="system" selectedImage="suitcase.fill" id="ckn-cb-rKV"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XrP-eV-wLJ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CXZ-Xf-8Or" kind="relationship" relationship="rootViewController" id="Ntv-rr-ZCe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bC4-yN-wX4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="832.82442748091603" y="666.90140845070425"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="magazine" catalog="system" width="110" height="128"/>
+        <image name="magazine.fill" catalog="system" width="110" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="suitcase" catalog="system" width="128" height="100"/>
+        <image name="suitcase.fill" catalog="system" width="128" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
