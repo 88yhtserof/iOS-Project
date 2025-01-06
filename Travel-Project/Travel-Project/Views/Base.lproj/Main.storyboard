@@ -515,6 +515,9 @@
                                                 <segment title="Second"/>
                                                 <segment title=""/>
                                             </segments>
+                                            <connections>
+                                                <action selector="segmentedControlDidSelected:" destination="dwj-9T-A0c" eventType="valueChanged" id="L4c-sc-wkb"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                 </stackView>

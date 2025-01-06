@@ -17,6 +17,21 @@ struct City {
     var first_city_name: String {
         return String(format: "%@ | %@", city_name, city_english_name)
     }
+    
+    enum Kind: Int, CaseIterable {
+        case all, domestic, international
+        
+        var title: String {
+            switch self {
+            case .all:
+                return "모두"
+            case .domestic:
+                return "국내"
+            case .international:
+                return "해외"
+            }
+        }
+    }
 }
 
 extension City {
