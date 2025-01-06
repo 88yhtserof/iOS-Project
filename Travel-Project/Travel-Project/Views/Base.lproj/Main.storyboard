@@ -23,6 +23,7 @@
                         <segue destination="dg7-Cl-ILX" kind="relationship" relationship="viewControllers" id="d0f-d9-VTL"/>
                         <segue destination="dUM-g3-Lpd" kind="relationship" relationship="viewControllers" id="A6F-f2-44y"/>
                         <segue destination="XPv-uu-5mZ" kind="relationship" relationship="viewControllers" id="BFA-Hp-42O"/>
+                        <segue destination="UzJ-E6-NvB" kind="relationship" relationship="viewControllers" id="b5r-Rd-LzN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwM-Vx-dtf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -197,7 +198,7 @@
                                                     <rect key="frame" x="231.33333333333329" y="0.0" width="121.66666666666666" height="121.66666666666667"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YjT-dx-M8x">
-                                                            <rect key="frame" x="0.0" y="1.6666666666666643" width="121.66666666666667" height="118.66666666666666"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="121.66666666666667"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="YjT-dx-M8x" secondAttribute="height" multiplier="1:1" id="crt-3y-yti"/>
                                                             </constraints>
@@ -463,6 +464,93 @@
             </objects>
             <point key="canvasLocation" x="1759.5419847328244" y="1388.7323943661972"/>
         </scene>
+        <!--인기 도시-->
+        <scene sceneID="8eD-uH-cZ8">
+            <objects>
+                <tableViewController id="dwj-9T-A0c" customClass="CityInfoTableViewController" customModule="Travel_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Izy-2c-71p">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="2zm-6n-VqZ">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="141"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="shI-f8-OYL">
+                                    <rect key="frame" x="8" y="8" width="377" height="103"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vof-ak-Py6">
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="46.666666666666664"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oOW-d7-Gt8">
+                                                    <rect key="frame" x="8" y="2" width="361" height="42.666666666666664"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="예) 부산" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6w-JN-LjA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="299.33333333333331" height="42.666666666666664"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9r7-aR-V2G">
+                                                            <rect key="frame" x="307.33333333333331" y="0.0" width="53.666666666666686" height="42.666666666666664"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="filled" title="검색">
+                                                                <color key="baseBackgroundColor" systemColor="systemGrayColor"/>
+                                                            </buttonConfiguration>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="oOW-d7-Gt8" firstAttribute="leading" secondItem="vof-ak-Py6" secondAttribute="leading" constant="8" id="BFs-dr-mzQ"/>
+                                                <constraint firstItem="oOW-d7-Gt8" firstAttribute="top" secondItem="vof-ak-Py6" secondAttribute="top" constant="2" id="LmI-h0-97E"/>
+                                                <constraint firstAttribute="bottom" secondItem="oOW-d7-Gt8" secondAttribute="bottom" constant="2" id="eL3-DM-nd4"/>
+                                                <constraint firstAttribute="trailing" secondItem="oOW-d7-Gt8" secondAttribute="trailing" constant="8" id="sA7-jJ-2NZ"/>
+                                            </constraints>
+                                        </view>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OYj-5S-z6D">
+                                            <rect key="frame" x="0.0" y="56.666666666666671" width="377" height="47.333333333333329"/>
+                                            <segments>
+                                                <segment title="First"/>
+                                                <segment title="Second"/>
+                                                <segment title=""/>
+                                            </segments>
+                                        </segmentedControl>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="shI-f8-OYL" firstAttribute="top" secondItem="2zm-6n-VqZ" secondAttribute="top" constant="8" id="B7C-gz-Wtv"/>
+                                <constraint firstAttribute="trailing" secondItem="shI-f8-OYL" secondAttribute="trailing" constant="8" id="OHl-kk-SvE"/>
+                                <constraint firstItem="shI-f8-OYL" firstAttribute="leading" secondItem="2zm-6n-VqZ" secondAttribute="leading" constant="8" id="hgi-tK-Sch"/>
+                                <constraint firstAttribute="bottom" secondItem="shI-f8-OYL" secondAttribute="bottom" constant="30" id="omi-LQ-gpu"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="CjF-wB-O69">
+                                <rect key="frame" x="0.0" y="191" width="393" height="44.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CjF-wB-O69" id="aVQ-8U-arA">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dwj-9T-A0c" id="VuA-7p-ARH"/>
+                            <outlet property="delegate" destination="dwj-9T-A0c" id="7aH-1P-8dV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="인기 도시" id="uSv-XU-O9c"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="OYj-5S-z6D" id="tkA-as-weR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N6s-DU-V2e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759.5419847328244" y="2119.7183098591549"/>
+        </scene>
         <!--MagazineInfo-->
         <scene sceneID="o5Y-e0-NoS">
             <objects>
@@ -522,6 +610,25 @@
             </objects>
             <point key="canvasLocation" x="833" y="1389"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="D8T-Lz-ipe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UzJ-E6-NvB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="zLk-dG-7oF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g86-3z-1qI">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dwj-9T-A0c" kind="relationship" relationship="rootViewController" id="ljd-Wg-6oS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OMk-m9-Ysa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832.82442748091603" y="2119.7183098591549"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
@@ -541,6 +648,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
