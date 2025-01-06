@@ -500,11 +500,11 @@
             </objects>
             <point key="canvasLocation" x="832.82442748091603" y="666.90140845070425"/>
         </scene>
-        <!--Item-->
+        <!--Shopping-->
         <scene sceneID="j14-5h-Mwr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XPv-uu-5mZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="10F-tZ-qyp"/>
+                    <tabBarItem key="tabBarItem" title="Shopping" image="bag" catalog="system" selectedImage="bag.fill" id="10F-tZ-qyp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qkx-f1-LSd">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -521,6 +521,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bag" catalog="system" width="128" height="128"/>
+        <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="magazine" catalog="system" width="110" height="128"/>
