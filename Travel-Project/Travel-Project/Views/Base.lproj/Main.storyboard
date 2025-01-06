@@ -491,6 +491,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
                                                                 <action selector="searchTextFieldDidEndOnExit:" destination="dwj-9T-A0c" eventType="editingDidEndOnExit" id="wBT-Td-VgV"/>
+                                                                <action selector="searchTextFieldEditingChanged:" destination="dwj-9T-A0c" eventType="editingChanged" id="cCD-4r-lk7"/>
                                                             </connections>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9r7-aR-V2G">

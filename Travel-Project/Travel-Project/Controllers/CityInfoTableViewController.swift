@@ -36,13 +36,10 @@ class CityInfoTableViewController: UITableViewController {
     
     @IBAction func searchButtonDidTapped(_ sender: UIButton) {
         view.endEditing(true)
-        search()
-        
     }
     
     @IBAction func searchTextFieldDidEndOnExit(_ sender: UITextField) {
         view.endEditing(true)
-        search()
     }
     
     @IBAction func segmentedControlDidSelected(_ sender: UISegmentedControl) {
@@ -52,6 +49,10 @@ class CityInfoTableViewController: UITableViewController {
         } else {
             tableView.reloadData()
         }
+    }
+    
+    @IBAction func searchTextFieldEditingChanged(_ sender: UITextField) {
+        search()
     }
     
     func search() {
