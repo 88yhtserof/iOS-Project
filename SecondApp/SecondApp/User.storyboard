@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,45 +27,47 @@
                                             <rect key="frame" x="16" y="8" width="134" height="134"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="IHr-Z4-u8T" secondAttribute="height" multiplier="1:1" id="AgW-Bq-sNM"/>
+                                                <constraint firstAttribute="height" constant="134" id="fm9-IB-DnP"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ctk-k7-W9a">
-                                            <rect key="frame" x="166" y="50.666666666666671" width="211" height="48.666666666666671"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVL-ys-aeI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="20.333333333333332"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3r-Cd-jOX">
-                                                    <rect key="frame" x="0.0" y="28.333333333333336" width="211" height="20.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3r-Cd-jOX">
+                                            <rect key="frame" x="166" y="43" width="211" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8AA-az-yvI">
                                             <rect key="frame" x="16" y="8" width="40" height="40"/>
-                                            <color key="backgroundColor" name="DEDEDE"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="73D-rm-3MG"/>
                                                 <constraint firstAttribute="width" constant="40" id="EsB-0Q-m3t"/>
                                             </constraints>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="Button" image="eraser" catalog="system"/>
+                                            <state key="normal" image="eraser" catalog="system"/>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVL-ys-aeI">
+                                            <rect key="frame" x="166" y="8" width="211" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="1Fe-Iv-AXQ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IHr-Z4-u8T" secondAttribute="bottom" constant="8" id="69g-Dz-nme"/>
                                         <constraint firstItem="8AA-az-yvI" firstAttribute="top" secondItem="IHr-Z4-u8T" secondAttribute="top" id="7ow-Ji-uQe"/>
-                                        <constraint firstItem="ctk-k7-W9a" firstAttribute="centerY" secondItem="XFS-6H-4hF" secondAttribute="centerY" id="K5i-65-Ac9"/>
-                                        <constraint firstAttribute="bottom" secondItem="IHr-Z4-u8T" secondAttribute="bottom" constant="8" id="Mew-aK-yy7"/>
+                                        <constraint firstItem="QVL-ys-aeI" firstAttribute="top" secondItem="XFS-6H-4hF" secondAttribute="top" constant="8" id="9tO-8l-t3B"/>
+                                        <constraint firstAttribute="trailing" secondItem="QVL-ys-aeI" secondAttribute="trailing" constant="16" id="BhP-vk-lQZ"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="h3r-Cd-jOX" secondAttribute="bottom" constant="8" id="DFF-x3-OfH"/>
+                                        <constraint firstAttribute="trailing" secondItem="h3r-Cd-jOX" secondAttribute="trailing" constant="16" id="DH1-7G-s2X"/>
+                                        <constraint firstItem="QVL-ys-aeI" firstAttribute="leading" secondItem="IHr-Z4-u8T" secondAttribute="trailing" constant="16" id="J4f-AK-i2w"/>
+                                        <constraint firstItem="h3r-Cd-jOX" firstAttribute="top" secondItem="QVL-ys-aeI" secondAttribute="bottom" constant="5" id="P0V-aJ-MMs"/>
+                                        <constraint firstItem="h3r-Cd-jOX" firstAttribute="leading" secondItem="IHr-Z4-u8T" secondAttribute="trailing" constant="16" id="Qqk-33-2hf"/>
                                         <constraint firstItem="8AA-az-yvI" firstAttribute="leading" secondItem="IHr-Z4-u8T" secondAttribute="leading" id="UtW-lt-AKC"/>
-                                        <constraint firstItem="ctk-k7-W9a" firstAttribute="leading" secondItem="IHr-Z4-u8T" secondAttribute="trailing" constant="16" id="cOg-24-jNZ"/>
                                         <constraint firstItem="IHr-Z4-u8T" firstAttribute="leading" secondItem="XFS-6H-4hF" secondAttribute="leading" constant="16" id="dUe-9j-ysV"/>
                                         <constraint firstItem="IHr-Z4-u8T" firstAttribute="top" secondItem="XFS-6H-4hF" secondAttribute="top" constant="8" id="eBn-Sz-eaB"/>
-                                        <constraint firstAttribute="trailing" secondItem="ctk-k7-W9a" secondAttribute="trailing" constant="16" id="njR-Dn-0wQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -90,9 +91,6 @@
     </scenes>
     <resources>
         <image name="eraser" catalog="system" width="128" height="119"/>
-        <namedColor name="DEDEDE">
-            <color red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

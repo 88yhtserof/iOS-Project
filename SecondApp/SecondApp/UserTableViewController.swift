@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 struct Friend {
     let name: String
@@ -24,6 +23,10 @@ class UserTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // xib 파일을 사용할 때는 해당 cell을 table view에 등록하는 과정이 필요하다
+//        let nib = UINib(nibName: "NoProfileTableViewCell", bundle: nil)
+//        tableView.register(nib, forCellReuseIdentifier: "no-profile-tableview-cell")
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,37 +34,35 @@ class UserTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // UserTableViewCell의 인스턴스 생성
         let cell = tableView.dequeueReusableCell(withIdentifier: "user-cell-identifier", for: indexPath) as! UserTableViewCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "no-profile-tableview-cell") as! NoProfileTableViewCell
         
         let friend = friends[indexPath.row]
-        cell.profileImageView.backgroundColor = .brown
         
-        // 데이터 기준 판단
-        if let imageStr = friend.profile_image {
-            let url = URL(string: imageStr)
-            cell.profileImageView.kf.setImage(with: url)
-        } else {
-            cell.profileImageView.image = UIImage(systemName: "star")
-        }
+        // cellForRow를 줄여보자
+        // cell에 있는 객체를 vc에서 가져와 수정하고 있다.
+        // cell의 책임인 UI 수정은 cell에서 구현하자
+        // UI 요소만 분리하자
         
-        let likeImageName = friend.like ? "star.fill" : "star"
-        cell.likeButton.setImage(UIImage(systemName: likeImageName), for: .normal)
+        /*
+         private가 아닌 접근제어자를 가진 멤버들은 사용하지 않더라도 부를 수 있다는 가능성을 내포하고 있기 때문에 파일 간 연결 망을 가지고 있다. 부를 가능성이 없는 멤버는 접근제어자를 사용해서 사용 범위를 제어해주면 약간의 효율성이 올라간다.
+         -> 최적화 / 협업 시 멤버의 사용범위를 추측할 수 있다
+         */
+        cell.configureData(friend: friend)
+        
+        // cell이 cell로서 역할이 아니라 table view의 정보를 너무 많이 갖기 때문에 버튼 기능은 vc에게 맡기기
+        // vc의 역할과 view의 역할 구분하기
         // 버튼을 구분 짓기 위해 tag로 분류
         cell.likeButton.tag = indexPath.row
         // Function Types 함수는 일급 객체
         cell.likeButton.addTarget(self, action: #selector(likeButtonDidTapped), for: .touchUpInside)
         
-        cell.nameLabel.text = friend.name
-        cell.messageLabel.text = friend.message
-        
-        cell.nameLabel.font = .boldSystemFont(ofSize: 16)
-        cell.messageLabel.font = .boldSystemFont(ofSize: 13)
-        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableView.automaticDimension
     }
     
     @objc func likeButtonDidTapped(_ sender: UIButton) {

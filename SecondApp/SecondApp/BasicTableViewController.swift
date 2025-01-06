@@ -9,7 +9,7 @@ import UIKit
 
 class BasicTableViewController: UITableViewController {
     
-    var list = [ "프로젝트", "메인 업무", "새싹 과제" ] {
+    var list = [ "프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트프로젝트", "메인 업무메인 업무메인 업무메인 업무메인 업무메인 업무메인 업무메인 업무메인 업무메인 업무메인 업무메인 업무", "새싹 과제" ] {
         didSet {
             tableView.reloadData()
         }
@@ -19,6 +19,10 @@ class BasicTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewBackground()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        // label의 numberOfLines 수정
+        
         
         // var monster = Monster() // 인스턴스를 만들다, 인스턴스화하다
     }
@@ -46,6 +50,7 @@ class BasicTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "first-cell-identifier")!
         
         cell.textLabel?.text = list[indexPath.row]
+        cell.textLabel?.numberOfLines = 0
         cell.detailTextLabel?.setPrimaryLabel("\(indexPath.row) 번째 아이템")
         
         
@@ -74,7 +79,7 @@ class BasicTableViewController: UITableViewController {
     // cell 높이가 유동적이다. 그럴 때 사용한다
     // 만약 높이가 고정적이라면, tableView.rowHeight = 90 처럼 고정
     // 왜냐하면 높이가 고정적인데 설정 메서드가 매번 호출되는 것은 비효율적이다
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
 }
