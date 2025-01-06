@@ -32,17 +32,7 @@ extension MagazineInfoViewController {
         }
         
         let magazine = magazines[indexPath.row]
-        
-        let imagStr = magazine.photo_image
-        if let url = URL(string: imagStr) {
-            cell.travelImageView.kf.setImage(with: url)
-        } else {
-            cell.travelImageView.image = UIImage(systemName: "photo")
-        }
-        
-        cell.titleLabel.text = magazine.title
-        cell.subtitleLabel.text = magazine.subtitle
-        cell.dateLabel.text = magazine.date_description
+        cell.configure(with: magazine)
         
         return cell
     }

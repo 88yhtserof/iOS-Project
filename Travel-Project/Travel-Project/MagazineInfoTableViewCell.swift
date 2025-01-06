@@ -19,7 +19,11 @@ class MagazineInfoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         configureSubviews()
-        
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        travelImageView.image = UIImage(systemName: "photo")
     }
     
     private func configureSubviews() {
@@ -36,6 +40,16 @@ class MagazineInfoTableViewCell: UITableViewCell {
         
         dateLabel.textColor = .gray
         dateLabel.font = .systemFont(ofSize: 15, weight: .regular)
+    }
+    
+    func configure(with magazine: Magazine) {
+        let imagStr = magazine.photo_image
+        if let url = URL(string: imagStr) {
+            travelImageView.kf.setImage(with: url)
+        }
+        titleLabel.text = magazine.title
+        subtitleLabel.text = magazine.subtitle
+        dateLabel.text = magazine.date_description
     }
 }
 
