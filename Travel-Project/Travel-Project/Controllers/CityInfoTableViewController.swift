@@ -8,20 +8,24 @@
 import UIKit
 
 class CityInfoTableViewController: UITableViewController {
+    //MARK: - View
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var searchTextField: UITextField!
     
+    //MARK: - Properties
     private let cities = City.cities
     private lazy var domesticCities =  cities.filter({ $0.domestic_travel })
     private lazy var internationalCities = cities.filter({ !$0.domestic_travel })
     private var searchedCities: [City]?
 
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureSubviews()
     }
     
+    //MARK: - Configure
     private func configureSubviews() {
         let nib = UINib(nibName: "CityInfoTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: CityInfoTableViewCell.identifier)
@@ -34,19 +38,17 @@ class CityInfoTableViewController: UITableViewController {
             }
     }
     
+    //MARK: - Action
     @IBAction func searchButtonDidTapped(_ sender: UIButton) {
-        view.endEditing(true)
+        setUpInitialState()
     }
     
     @IBAction func searchTextFieldDidEndOnExit(_ sender: UITextField) {
-        view.endEditing(true)
+        setUpInitialState()
     }
     
     @IBAction func segmentedControlDidSelected(_ sender: UISegmentedControl) {
-        let searchedWord = searchTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        if !searchedWord.isEmpty {
-            search()
-        } else {
+        if !search() {
             tableView.reloadData()
         }
     }
@@ -55,15 +57,25 @@ class CityInfoTableViewController: UITableViewController {
         search()
     }
     
-    func search() {
-        let searchedWord = searchTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        if searchedWord.isEmpty {
+    //MARK: - Method
+    func setUpInitialState() {
+        view.endEditing(true)
+        if searchedCities == nil {
+            tableView.reloadData()
+        }
+    }
+    
+    /// Search the text of text field and return the search result
+    @discardableResult
+    func search() -> Bool {
+        guard let text = searchTextField.text,
+              let search = Search(searchedWord: text) else {
             searchedCities = nil
-            return
+            return false
         }
         guard let kind = City.Kind(rawValue: segmentedControl.selectedSegmentIndex) else {
             print("Unknown section")
-            return
+            return false
         }
         
         var basedCities: [City]
@@ -77,11 +89,10 @@ class CityInfoTableViewController: UITableViewController {
             basedCities = internationalCities
         }
         
-        searchedCities = basedCities.filter { city in
-            city.city_name.lowercased().contains(searchedWord) || city.city_english_name.lowercased().contains(searchedWord) || city.city_explain.lowercased().contains(searchedWord)
-        }
-        
+        searchedCities = basedCities
+            .filter{ search.contains(within: [ $0.city_name, $0.city_english_name, $0.city_explain ]) }
         tableView.reloadData()
+        return true
     }
 }
 
