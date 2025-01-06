@@ -194,16 +194,16 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pS0-Pf-X1D">
-                                                    <rect key="frame" x="230" y="0.0" width="123" height="123"/>
+                                                    <rect key="frame" x="231.33333333333329" y="0.0" width="121.66666666666666" height="121.66666666666667"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YjT-dx-M8x">
-                                                            <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+                                                            <rect key="frame" x="0.0" y="1.6666666666666643" width="121.66666666666667" height="118.66666666666666"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="YjT-dx-M8x" secondAttribute="height" multiplier="1:1" id="crt-3y-yti"/>
                                                             </constraints>
                                                         </imageView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMu-AT-lKc">
-                                                            <rect key="frame" x="63" y="0.0" width="60" height="60"/>
+                                                            <rect key="frame" x="61.666666666666686" y="0.0" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="LMu-AT-lKc" secondAttribute="height" multiplier="1:1" id="5c4-Fo-X3c"/>
                                                                 <constraint firstAttribute="width" constant="60" id="k08-E1-wZC"/>
@@ -225,6 +225,9 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YjT-dx-M8x" firstAttribute="height" secondItem="vXr-yt-a2H" secondAttribute="height" multiplier="0.98916" id="8t3-GA-feM"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
