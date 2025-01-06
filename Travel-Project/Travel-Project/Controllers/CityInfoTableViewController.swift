@@ -9,10 +9,12 @@ import UIKit
 
 class CityInfoTableViewController: UITableViewController {
     @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var searchTextField: UITextField!
     
     private let cities = City.cities
     private lazy var domesticCities =  cities.filter({ $0.domestic_travel })
     private lazy var internationalCities = cities.filter({ !$0.domestic_travel })
+    private var searchedCities: [City]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,6 @@ class CityInfoTableViewController: UITableViewController {
     }
     
     private func configureSubviews() {
-        
         let nib = UINib(nibName: "CityInfoTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: CityInfoTableViewCell.identifier)
         tableView.rowHeight = 130
@@ -33,10 +34,56 @@ class CityInfoTableViewController: UITableViewController {
             }
     }
     
+    @IBAction func searchButtonDidTapped(_ sender: UIButton) {
+        view.endEditing(true)
+        search()
+        
+    }
+    
+    @IBAction func searchTextFieldDidEndOnExit(_ sender: UITextField) {
+        view.endEditing(true)
+        search()
+    }
+    
     @IBAction func segmentedControlDidSelected(_ sender: UISegmentedControl) {
+        let searchedWord = searchTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if !searchedWord.isEmpty {
+            search()
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
+    func search() {
+        let searchedWord = searchTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if searchedWord.isEmpty {
+            searchedCities = nil
+            return
+        }
+        guard let kind = City.Kind(rawValue: segmentedControl.selectedSegmentIndex) else {
+            print("Unknown section")
+            return
+        }
+        
+        var basedCities: [City]
+        
+        switch kind {
+        case .all:
+            basedCities = cities
+        case .domestic:
+            basedCities = domesticCities
+        case .international:
+            basedCities = internationalCities
+        }
+        
+        searchedCities = basedCities.filter { city in
+            city.city_name.lowercased().contains(searchedWord) || city.city_english_name.lowercased().contains(searchedWord) || city.city_explain.lowercased().contains(searchedWord)
+        }
+        
         tableView.reloadData()
     }
 }
+
 
 //MARK: - TableView Method
 extension CityInfoTableViewController {
@@ -44,6 +91,10 @@ extension CityInfoTableViewController {
         guard let kind = City.Kind(rawValue: segmentedControl.selectedSegmentIndex) else {
             print("Unknown section")
             return 0
+        }
+        
+        if let searchedCities {
+            return searchedCities.count
         }
         
         switch kind {
@@ -70,16 +121,19 @@ extension CityInfoTableViewController {
         let row = indexPath.row
         var city: City
         
-        switch kind {
-        case .all:
-            city = cities[row]
-        case .domestic:
-            city = domesticCities[row]
-        case .international:
-            city = internationalCities[row]
+        if let searchedCities {
+            city = searchedCities[row]
+        } else {
+            switch kind {
+            case .all:
+                city = cities[row]
+            case .domestic:
+                city = domesticCities[row]
+            case .international:
+                city = internationalCities[row]
+            }
         }
         cell.configure(with: city)
-        
         return cell
     }
 }

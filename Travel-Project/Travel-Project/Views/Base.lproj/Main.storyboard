@@ -489,6 +489,9 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="299.33333333333331" height="42.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="searchTextFieldDidEndOnExit:" destination="dwj-9T-A0c" eventType="editingDidEndOnExit" id="wBT-Td-VgV"/>
+                                                            </connections>
                                                         </textField>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9r7-aR-V2G">
                                                             <rect key="frame" x="307.33333333333331" y="0.0" width="53.666666666666686" height="42.666666666666664"/>
@@ -496,6 +499,9 @@
                                                             <buttonConfiguration key="configuration" style="filled" title="검색">
                                                                 <color key="baseBackgroundColor" systemColor="systemGrayColor"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="searchButtonDidTapped:" destination="dwj-9T-A0c" eventType="touchUpInside" id="reV-dO-ILh"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -547,6 +553,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="인기 도시" id="uSv-XU-O9c"/>
                     <connections>
+                        <outlet property="searchTextField" destination="m6w-JN-LjA" id="5kt-ef-Mby"/>
                         <outlet property="segmentedControl" destination="OYj-5S-z6D" id="tkA-as-weR"/>
                     </connections>
                 </tableViewController>
