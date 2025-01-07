@@ -52,4 +52,17 @@ extension TravelInfoTableViewController {
             return 150
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let travel = travels[indexPath.row]
+        
+        if travel.ad {
+            
+        } else {
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let travelInfoDetailVC = mainStoryboard.instantiateViewController(withIdentifier: "TravelInfoDetailViewController") as? TravelInfoDetailViewController else { return }
+            travelInfoDetailVC.travelInfo = travel
+            navigationController?.pushViewController(travelInfoDetailVC, animated: true)
+        }
+    }
 }
