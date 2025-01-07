@@ -23,6 +23,8 @@ class TravelInfoDetailViewController: UIViewController {
     }
     
     private func configureSubviews() {
+        navigationItem.title = "관광지 상세"
+        
         travelImageView.cornerRadius()
         travelImageView.contentMode = .scaleAspectFill
         travelImageView.backgroundColor = .systemGray6

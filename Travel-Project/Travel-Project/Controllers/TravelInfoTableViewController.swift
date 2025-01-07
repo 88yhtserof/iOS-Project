@@ -55,11 +55,15 @@ extension TravelInfoTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let travel = travels[indexPath.row]
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
         if travel.ad {
-            
+            guard let travelInfoAdVC = mainStoryboard.instantiateViewController(withIdentifier: "TravelInfoAdViewController") as? TravelInfoAdViewController else { return }
+            travelInfoAdVC.travelInfo = travel
+            let navigationVC = UINavigationController(rootViewController: travelInfoAdVC)
+            navigationVC.modalPresentationStyle = .fullScreen
+            present(navigationVC, animated: true)
         } else {
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             guard let travelInfoDetailVC = mainStoryboard.instantiateViewController(withIdentifier: "TravelInfoDetailViewController") as? TravelInfoDetailViewController else { return }
             travelInfoDetailVC.travelInfo = travel
             navigationController?.pushViewController(travelInfoDetailVC, animated: true)

@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="2635.8778625954196" y="666.90140845070425"/>
         </scene>
-        <!--View Controller-->
+        <!--Travel Info Ad View Controller-->
         <scene sceneID="DNf-Rz-wUz">
             <objects>
-                <viewController id="BSN-gU-GKZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TravelInfoAdViewController" id="BSN-gU-GKZ" customClass="TravelInfoAdViewController" customModule="Travel_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AOv-lM-D1S">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,6 +406,9 @@
                             <constraint firstItem="abe-Os-h1p" firstAttribute="centerX" secondItem="AOv-lM-D1S" secondAttribute="centerX" id="2nY-fb-G8S"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="abe-Os-h1p" id="Mfd-7H-u38"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0x-TK-oFp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
