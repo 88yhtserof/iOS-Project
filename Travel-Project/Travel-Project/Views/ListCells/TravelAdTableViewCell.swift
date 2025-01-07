@@ -13,6 +13,7 @@ class TravelAdTableViewCell: UITableViewCell {
     @IBOutlet var adBackgoundView: UIView!
     
     static let identifier = "travel-ad-cell"
+    private static let background_colors = [ UIColor.systemPink, UIColor.systemMint, UIColor.systemYellow ].map{ $0.withAlphaComponent(0.3) }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,7 @@ class TravelAdTableViewCell: UITableViewCell {
     
     func configure(with travel: Travel) {
         titleLabel.text = travel.title
+        backgroundColorView.backgroundColor = TravelAdTableViewCell.background_colors.randomElement()
     }
 
 }
