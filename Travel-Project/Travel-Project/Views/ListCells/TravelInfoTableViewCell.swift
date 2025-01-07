@@ -25,6 +25,11 @@ class TravelInfoTableViewCell: UITableViewCell {
         configureSubviews()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        travelImageView.image = UIImage(systemName: "photo")
+    }
+    
     private func configureSubviews() {
         titleLabel.font = .systemFont(ofSize: 13, weight: .heavy)
         titleLabel.textColor = .black
@@ -37,6 +42,8 @@ class TravelInfoTableViewCell: UITableViewCell {
         
         travelImageView.contentMode = .scaleAspectFill
         travelImageView.backgroundColor = .gray
+        travelImageView.image = UIImage(systemName: "photo")
+        travelImageView.tintColor = .yellow
         travelImageView.cornerRadius()
         
         likeButton.tintColor = .white
@@ -56,8 +63,6 @@ class TravelInfoTableViewCell: UITableViewCell {
         
         if let url = URL(string: travel_image) {
             travelImageView.kf.setImage(with: url)
-        } else {
-            travelImageView.image = UIImage(systemName: "photo")
         }
         
         let imageName = like ? "heart.fill" : "heart"
