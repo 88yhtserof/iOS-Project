@@ -621,11 +621,11 @@
             </objects>
             <point key="canvasLocation" x="833" y="1389"/>
         </scene>
-        <!--Item-->
+        <!--CityInfo-->
         <scene sceneID="D8T-Lz-ipe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UzJ-E6-NvB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zLk-dG-7oF"/>
+                    <tabBarItem key="tabBarItem" title="CityInfo" image="building.2.crop.circle" catalog="system" selectedImage="building.2.crop.circle.fill" id="zLk-dG-7oF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g86-3z-1qI">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -644,6 +644,8 @@
     <resources>
         <image name="bag" catalog="system" width="128" height="128"/>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
+        <image name="building.2.crop.circle" catalog="system" width="128" height="123"/>
+        <image name="building.2.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="magazine" catalog="system" width="110" height="128"/>

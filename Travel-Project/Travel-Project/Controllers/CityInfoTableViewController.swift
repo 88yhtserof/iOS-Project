@@ -17,6 +17,7 @@ class CityInfoTableViewController: UITableViewController {
     private lazy var domesticCities =  cities.filter({ $0.domestic_travel })
     private lazy var internationalCities = cities.filter({ !$0.domestic_travel })
     private var searchedCities: [City]?
+    var ranges: [[NSRange]]?
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -71,6 +72,7 @@ class CityInfoTableViewController: UITableViewController {
         guard let text = searchTextField.text,
               let search = Search(searchedWord: text) else {
             searchedCities = nil
+            ranges = nil
             return false
         }
         guard let kind = City.Kind(rawValue: segmentedControl.selectedSegmentIndex) else {
@@ -91,6 +93,10 @@ class CityInfoTableViewController: UITableViewController {
         
         searchedCities = basedCities
             .filter{ search.contains(within: [ $0.city_name, $0.city_english_name, $0.city_explain ]) }
+        
+        ranges = searchedCities?
+            .map{ search.matches(within: [$0.first_city_name, $0.city_explain]) }
+        
         tableView.reloadData()
         return true
     }
@@ -145,7 +151,8 @@ extension CityInfoTableViewController {
                 city = internationalCities[row]
             }
         }
-        cell.configure(with: city)
+        
+        cell.configure(with: city, ranges: ranges?[row])
         return cell
     }
 }

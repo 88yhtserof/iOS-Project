@@ -46,12 +46,24 @@ class CityInfoTableViewCell: UITableViewCell {
         cityListLabel.font = .systemFont(ofSize: 13, weight: .light)
     }
     
-    func configure(with city: City) {
+    func configure(with city: City, ranges: [NSRange]?) {
         if let url = URL(string: city.city_image) {
             cityImageView.kf.setImage(with: url)
         }
         
-        firstCityLabel.text = city.first_city_name
-        cityListLabel.text = city.city_explain
+        if let ranges {
+            let texts = [ city.first_city_name, city.city_explain ]
+            let labels: [UILabel] = [ firstCityLabel, cityListLabel ]
+            (0..<texts.count)
+                .forEach{ i in
+                    let (range, label, text) = (ranges[i], labels[i], texts[i])
+                    let attributedString = NSMutableAttributedString(string: text)
+                    attributedString.addAttribute(.foregroundColor, value: UIColor.orange, range: range)
+                    label.attributedText = attributedString
+                }
+        } else {
+            firstCityLabel.text = city.first_city_name
+            cityListLabel.text = city.city_explain
+        }
     }
 }
