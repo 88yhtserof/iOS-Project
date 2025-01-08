@@ -45,13 +45,19 @@ class RestaurantInfoViewController: UIViewController {
         configureMapView()
     }
     
-    private func configureMapView() {
+    private func configureMapView(_ category: Restaurant.Category? = nil) {
         mapView.removeAnnotations(mapView.annotations)
         var annotations: [ MKPointAnnotation ] = []
         var (maxLati, minLati): (CLLocationDegrees, CLLocationDegrees) = (restaurants[0].latitude, restaurants[0].latitude)
         var (maxLong, minLong) : (CLLocationDegrees, CLLocationDegrees) = (restaurants[0].longitude, restaurants[0].longitude)
         
-        restaurants
+        
+        var filteredRestaurants = restaurants
+        if let category {
+            filteredRestaurants = restaurants.filter{ $0.category_kind == category }
+        }
+        
+        filteredRestaurants
             .forEach {
                 maxLati = max(maxLati, $0.latitude)
                 minLati = min(minLati, $0.latitude)
@@ -83,7 +89,7 @@ class RestaurantInfoViewController: UIViewController {
         Restaurant.Category.allCases
             .forEach { category in
                 let action = UIAlertAction(title: category.title, style: .default) { [self] _ in
-                    self.configureMapView()
+                    self.configureMapView(category)
                 }
                 alert.addAction(action)
             }

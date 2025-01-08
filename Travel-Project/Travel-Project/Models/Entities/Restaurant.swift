@@ -18,6 +18,36 @@ struct Restaurant {
     let price: Int
     let type: Int
     
+    var category_kind: Category? {
+        Category(rawValue: category)
+    }
+    
+    enum Category: String, CaseIterable {
+        case korean = "한식"
+        case chinese = "중식"
+        case japanese = "일식"
+        case european = "양식"
+        case salad = "샐러드"
+        case cafe = "카페"
+        
+        var title: String {
+            switch self {
+            case .korean:
+                return "한식"
+            case .chinese:
+                return "중식"
+            case .japanese:
+                return "일식"
+            case .european:
+                return "양식"
+            case .salad:
+                return "샐러드"
+            case .cafe:
+                return "카페"
+            }
+        }
+        
+    }
 }
 
 extension Restaurant {
