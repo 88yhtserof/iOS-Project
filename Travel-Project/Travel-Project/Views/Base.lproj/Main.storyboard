@@ -885,11 +885,11 @@
             </objects>
             <point key="canvasLocation" x="1759.5419847328244" y="2875.3521126760565"/>
         </scene>
-        <!--Item-->
+        <!--RestaurantInfo-->
         <scene sceneID="sGp-eZ-dsc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uqb-7h-gc5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Yo6-fU-qXz"/>
+                    <tabBarItem key="tabBarItem" title="RestaurantInfo" image="fork.knife.circle" catalog="system" selectedImage="fork.knife.circle.fill" id="Yo6-fU-qXz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bWT-wR-5Il">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -911,6 +911,8 @@
         <image name="building.2.crop.circle" catalog="system" width="128" height="123"/>
         <image name="building.2.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="fork.knife.circle" catalog="system" width="128" height="123"/>
+        <image name="fork.knife.circle.fill" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="magazine" catalog="system" width="110" height="128"/>
         <image name="magazine.fill" catalog="system" width="110" height="128"/>
