@@ -14,7 +14,7 @@
 		145A31EC2D2ED6BB00E25BDA /* Exceptions for "Game369" folder in "Game369" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 145A31D92D2ED6BA00E25BDA /* Game369 */;
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZQV4ZDQNW5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Game369/Info.plist;
+				INFOPLIST_FILE = Game369/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -180,7 +180,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZQV4ZDQNW5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Game369/Info.plist;
+				INFOPLIST_FILE = Game369/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
