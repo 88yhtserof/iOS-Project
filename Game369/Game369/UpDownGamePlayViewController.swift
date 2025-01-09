@@ -70,6 +70,7 @@ class UpDownGamePlayViewController: UIViewController {
         config?.baseForegroundColor = .white
         config?.baseBackgroundColor = .black
         resultButton.configuration = config
+        resultButton.isEnabled = false
     }
     
     private func configureCollectionView() {
@@ -93,10 +94,8 @@ class UpDownGamePlayViewController: UIViewController {
     }
     
     @IBAction func resultButtonDidTapped(_ sender: UIButton) {
-        // TODO: - 아이템이 선택되지 않았을 경우 결과 확인 버튼 비활성화 조건 구현
         count += 1
         
-        print(selectedItem!)
         switch randomNumber {
         case selectedItem!:
             gameResult = .win
@@ -112,6 +111,7 @@ class UpDownGamePlayViewController: UIViewController {
             gameResult = .inital
         }
         collectionView.reloadSections(IndexSet(integer: 0))
+        resultButton.isEnabled = false
     }
     
     @objc
@@ -137,6 +137,7 @@ extension UpDownGamePlayViewController: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        resultButton.isEnabled = true
         selectedItem = numbers[indexPath.item]
         selectedIndex = numbers.firstIndex(of: selectedItem!)
     }
