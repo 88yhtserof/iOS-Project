@@ -82,18 +82,108 @@
         <!--UpDown-->
         <scene sceneID="ZSu-Pa-1Tn">
             <objects>
-                <viewController id="8Y9-m9-xgg" sceneMemberID="viewController">
+                <viewController id="8Y9-m9-xgg" customClass="UpDownGameViewController" customModule="Game369" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P5k-I2-krc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Uuw-xF-SfZ">
+                                <rect key="frame" x="24" y="67" width="345" height="686"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kmx-hw-pdb">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="94"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFG-ZY-KzV">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="54"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="54" id="Y2G-7W-SVg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6M-Cq-WpH">
+                                                <rect key="frame" x="0.0" y="64" width="345" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="eK6-nA-h4P"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6vV-dT-Be5">
+                                        <rect key="frame" x="0.0" y="131" width="345" height="400"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="a0r-iF-4y3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="y2T-Uj-9E7">
+                                        <rect key="frame" x="0.0" y="568" width="345" height="31"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sij-Oo-i3V">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="mWd-Qf-1A7"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pek-jF-zQr">
+                                                <rect key="frame" x="0.0" y="30" width="345" height="1"/>
+                                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="f1P-Pk-aye"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4Y-fB-o79">
+                                        <rect key="frame" x="0.0" y="636" width="345" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="FD6-mw-7MB"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <connections>
+                                            <action selector="startButtonDidTapped:" destination="8Y9-m9-xgg" eventType="touchUpInside" id="CVy-JM-uCs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="dle-gU-l0g"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.73401927950000001" green="0.85908931489999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Uuw-xF-SfZ" firstAttribute="top" secondItem="dle-gU-l0g" secondAttribute="top" constant="8" id="Uhy-OY-meY"/>
+                            <constraint firstItem="dle-gU-l0g" firstAttribute="trailing" secondItem="Uuw-xF-SfZ" secondAttribute="trailing" constant="24" id="Vrh-hN-PnZ"/>
+                            <constraint firstItem="Uuw-xF-SfZ" firstAttribute="leading" secondItem="dle-gU-l0g" secondAttribute="leading" constant="24" id="X1k-If-1uI"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="taM-Bt-MSE" appends="YES" id="28F-ez-CMs"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="UpDown" image="hand.thumbsup" catalog="system" selectedImage="hand.thumbsup.fill" id="hb1-CD-aT2"/>
+                    <connections>
+                        <outlet property="gameImageView" destination="6vV-dT-Be5" id="TGz-xf-g5d"/>
+                        <outlet property="gameImageViewHeightConstraint" destination="a0r-iF-4y3" id="k7t-G6-7AP"/>
+                        <outlet property="maxTextField" destination="Sij-Oo-i3V" id="CbT-wa-BdD"/>
+                        <outlet property="outerStackView" destination="Uuw-xF-SfZ" id="SyS-pe-Fr4"/>
+                        <outlet property="startButton" destination="X4Y-fB-o79" id="pQ2-kX-7fb"/>
+                        <outlet property="subtitleLabel" destination="O6M-Cq-WpH" id="bt2-m7-KdO"/>
+                        <outlet property="titleLabel" destination="RFG-ZY-KzV" id="zAi-a9-1N4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25D-Cu-HWh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="taM-Bt-MSE">
+                    <connections>
+                        <action selector="viewDidTapped:" destination="8Y9-m9-xgg" id="Uj7-oq-Z1B"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="969" y="694"/>
+            <point key="canvasLocation" x="968.70229007633588" y="693.66197183098598"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="a4c-Cb-gYe">
@@ -101,6 +191,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Qz1-Bm-igo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PwW-Rf-ayc">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,6 +216,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
