@@ -56,8 +56,16 @@ class UpDownGameViewController: UIViewController {
     }
     
     @IBAction func startButtonDidTapped(_ sender: UIButton) {
-        guard let maxNumber = maxTextField.text else { return }
+        guard let maxNumber = Int(maxTextField.text ?? "") else { return }
         view.endEditing(true)
-        print(#function, maxNumber)
+        
+        let id = "UpDownGamePlayViewController"
+        let storyboardMain = UIStoryboard(name: "Main", bundle: nil)
+        guard let upDownGamePlayVC = storyboardMain.instantiateViewController(withIdentifier: id) as? UpDownGamePlayViewController else { return }
+        upDownGamePlayVC.maxNumber = maxNumber
+        let navigationController = UINavigationController(rootViewController: upDownGamePlayVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
+        
     }
 }
