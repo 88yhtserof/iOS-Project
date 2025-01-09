@@ -15,14 +15,38 @@ class UpDownGamePlayViewController: UIViewController {
     @IBOutlet var resultButton: UIButton!
     private lazy var dismissBarButtonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissButtonDidTapped))
     
+    enum UpDownGameResult {
+        case inital, up, down, win
+        
+        var title: String {
+            switch self {
+            case .inital:
+                return "UpDown"
+            case .up:
+                return "Up"
+            case .down:
+                return "Down"
+            case .win:
+                return "Win"
+            }
+        }
+    }
+
+    
     var maxNumber: Int?
     private lazy var numbers: [Int] = Array(1...(maxNumber ?? 1))
-    private lazy var randomeNumber: Int = numbers.randomElement()!
+    private lazy var randomNumber: Int = numbers.randomElement()!
     private var count: Int = 0 {
         didSet {
             countLabel.text = String(count)
         }
     }
+    private var gameResult: UpDownGameResult = .inital {
+        didSet {
+            titleLabel.text = gameResult.title
+        }
+    }
+    private var selectedItem: Int?
     
     static let identifier = String(describing: UpDownGamePlayViewController.self)
     
@@ -36,7 +60,7 @@ class UpDownGamePlayViewController: UIViewController {
     private func configureSubviews() {
         navigationItem.leftBarButtonItem = dismissBarButtonItem
         
-        titleLabel.text = "UpDown"
+        titleLabel.text = gameResult.title
         subtitleLabel.text = "시도 횟수:"
         countLabel.text = "0"
         
@@ -68,7 +92,20 @@ class UpDownGamePlayViewController: UIViewController {
     }
     
     @IBAction func resultButtonDidTapped(_ sender: UIButton) {
+        // TODO: - 아이템이 선택되지 않았을 경우 결과 확인 버튼 비활성화 조건 구현
         count += 1
+        let selected = selectedItem!
+        switch randomNumber {
+        case selected:
+            gameResult = .win
+        case ..<selected:
+            gameResult = .down
+        case ...maxNumber!:
+            gameResult = .up
+        default:
+            print("Unknown Range")
+            gameResult = .inital
+        }
     }
     
     @objc
@@ -95,5 +132,6 @@ extension UpDownGamePlayViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
+        selectedItem = indexPath.item
     }
 }
