@@ -11,6 +11,13 @@ class CircleCollectionViewCell: UICollectionViewCell, ListCellConfigurable {
     @IBOutlet var circleView: UIView!
     @IBOutlet var titleLabel: UILabel!
     
+    override var isSelected: Bool {
+        didSet {
+            circleView.backgroundColor = isSelected ? .black : .white
+            titleLabel.textColor = isSelected ? .white : .black
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

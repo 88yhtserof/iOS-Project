@@ -17,6 +17,12 @@ class UpDownGamePlayViewController: UIViewController {
     
     var maxNumber: Int?
     private lazy var numbers: [Int] = Array(1...(maxNumber ?? 1))
+    private lazy var randomeNumber: Int = numbers.randomElement()!
+    private var count: Int = 0 {
+        didSet {
+            countLabel.text = String(count)
+        }
+    }
     
     static let identifier = String(describing: UpDownGamePlayViewController.self)
     
@@ -61,6 +67,10 @@ class UpDownGamePlayViewController: UIViewController {
         return layout
     }
     
+    @IBAction func resultButtonDidTapped(_ sender: UIButton) {
+        count += 1
+    }
+    
     @objc
     func dismissButtonDidTapped() {
         dismiss(animated: true)
@@ -83,5 +93,7 @@ extension UpDownGamePlayViewController: UICollectionViewDataSource, UICollection
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(#function)
+    }
 }

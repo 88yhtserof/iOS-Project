@@ -259,6 +259,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                         <connections>
+                                            <action selector="resultButtonDidTapped:" destination="rAj-SD-mCC" eventType="touchUpInside" id="xsq-7g-MV3"/>
                                             <action selector="startButtonDidTapped:" destination="8Y9-m9-xgg" eventType="touchUpInside" id="C1i-3c-vsM"/>
                                         </connections>
                                     </button>
