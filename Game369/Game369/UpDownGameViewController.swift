@@ -20,7 +20,7 @@ class UpDownGameViewController: UIViewController {
         super.viewDidLoad()
         
         configureSubviews()
-        configureConstraints()
+        configureKeyboardConstraints()
     }
     
     private func configureSubviews() {
@@ -47,7 +47,7 @@ class UpDownGameViewController: UIViewController {
         return UIImage(named: imageName)
     }
     
-    private func configureConstraints() {
+    private func configureKeyboardConstraints() {
         view.keyboardLayoutGuide.topAnchor.constraint(greaterThanOrEqualTo: outerStackView.bottomAnchor, constant: 10).isActive = true
     }
     
