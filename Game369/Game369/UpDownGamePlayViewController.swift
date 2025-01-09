@@ -8,6 +8,7 @@
 import UIKit
 
 class UpDownGamePlayViewController: UIViewController {
+    //MARK: - View
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
@@ -15,42 +16,14 @@ class UpDownGamePlayViewController: UIViewController {
     @IBOutlet var resultButton: UIButton!
     private lazy var dismissBarButtonItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissButtonDidTapped))
     
-    enum UpDownGameResult {
-        case inital, up, down, win
-        
-        var title: String {
-            switch self {
-            case .inital:
-                return "UpDown"
-            case .up:
-                return "Up"
-            case .down:
-                return "Down"
-            case .win:
-                return "Win"
-            }
-        }
-    }
-
-    
+    //MARK: - Properties
     var maxNumber: Int?
-    private lazy var numbers: [Int] = Array(1...(maxNumber ?? 1))
-    private lazy var randomNumber: Int = numbers.randomElement()!
-    private var count: Int = 0 {
-        didSet {
-            countLabel.text = String(count)
-        }
-    }
-    private var gameResult: UpDownGameResult = .inital {
-        didSet {
-            titleLabel.text = gameResult.title
-        }
-    }
+    private lazy var upDownGame = UpDownGame(max: maxNumber ?? 1)
     private var selectedItem: Int?
-    private var selectedIndex: Int?
     
     static let identifier = String(describing: UpDownGamePlayViewController.self)
     
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,10 +31,11 @@ class UpDownGamePlayViewController: UIViewController {
         configureCollectionView()
     }
     
+    //MARK: - Configuration
     private func configureSubviews() {
         navigationItem.leftBarButtonItem = dismissBarButtonItem
         
-        titleLabel.text = gameResult.title
+        titleLabel.text = upDownGame.title
         subtitleLabel.text = "시도 횟수:"
         countLabel.text = "0"
         
@@ -93,23 +67,10 @@ class UpDownGamePlayViewController: UIViewController {
         return layout
     }
     
+    //MARK: - Action
     @IBAction func resultButtonDidTapped(_ sender: UIButton) {
-        count += 1
-        
-        switch randomNumber {
-        case selectedItem!:
-            gameResult = .win
-            numbers = [numbers[selectedIndex!]]
-        case ..<selectedItem!:
-            gameResult = .down
-            numbers = Array(numbers[..<selectedIndex!])
-        case ...maxNumber!:
-            gameResult = .up
-            numbers = Array(numbers[(selectedIndex! + 1)..<numbers.endIndex])
-        default:
-            print("Unknown Range")
-            gameResult = .inital
-        }
+        titleLabel.text = upDownGame.play(selectedItem!)
+        countLabel.text = String(upDownGame.count)
         collectionView.reloadSections(IndexSet(integer: 0))
         resultButton.isEnabled = false
     }
@@ -123,14 +84,14 @@ class UpDownGamePlayViewController: UIViewController {
 //MARK: - CollectionView Delegate
 extension UpDownGamePlayViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numbers.count
+        return upDownGame.numbers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CircleCollectionViewCell.identifier, for: indexPath) as? CircleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let number = numbers[indexPath.item]
+        let number = upDownGame.numbers[indexPath.item]
         cell.configure(with: number)
         
         return cell
@@ -138,7 +99,6 @@ extension UpDownGamePlayViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         resultButton.isEnabled = true
-        selectedItem = numbers[indexPath.item]
-        selectedIndex = numbers.firstIndex(of: selectedItem!)
+        selectedItem = upDownGame.numbers[indexPath.item]
     }
 }

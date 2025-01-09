@@ -7,8 +7,8 @@
 
 import Foundation
 
-
-class Game369 {
+// 클래스와 구조체 중 무엇이 적합할지 생각해보기
+class Game369: NumberGame {
     let max: Int
     lazy var numbers: [Int] = Array(1...max)
     var clapCount: Int = 0
