@@ -47,6 +47,7 @@ class UpDownGamePlayViewController: UIViewController {
         }
     }
     private var selectedItem: Int?
+    private var selectedIndex: Int?
     
     static let identifier = String(describing: UpDownGamePlayViewController.self)
     
@@ -94,18 +95,23 @@ class UpDownGamePlayViewController: UIViewController {
     @IBAction func resultButtonDidTapped(_ sender: UIButton) {
         // TODO: - 아이템이 선택되지 않았을 경우 결과 확인 버튼 비활성화 조건 구현
         count += 1
-        let selected = selectedItem!
+        
+        print(selectedItem!)
         switch randomNumber {
-        case selected:
+        case selectedItem!:
             gameResult = .win
-        case ..<selected:
+            numbers = [numbers[selectedIndex!]]
+        case ..<selectedItem!:
             gameResult = .down
+            numbers = Array(numbers[..<selectedIndex!])
         case ...maxNumber!:
             gameResult = .up
+            numbers = Array(numbers[(selectedIndex! + 1)..<numbers.endIndex])
         default:
             print("Unknown Range")
             gameResult = .inital
         }
+        collectionView.reloadSections(IndexSet(integer: 0))
     }
     
     @objc
@@ -124,14 +130,14 @@ extension UpDownGamePlayViewController: UICollectionViewDataSource, UICollection
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CircleCollectionViewCell.identifier, for: indexPath) as? CircleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        cell.configure(with: indexPath.item)
+        let number = numbers[indexPath.item]
+        cell.configure(with: number)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
-        selectedItem = indexPath.item
+        selectedItem = numbers[indexPath.item]
+        selectedIndex = numbers.firstIndex(of: selectedItem!)
     }
 }
