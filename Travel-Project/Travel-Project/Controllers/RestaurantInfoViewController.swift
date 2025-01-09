@@ -59,25 +59,28 @@ class RestaurantInfoViewController: UIViewController {
         
         filteredRestaurants
             .forEach {
-                maxLati = max(maxLati, $0.latitude)
-                minLati = min(minLati, $0.latitude)
-                maxLong = max(maxLong, $0.longitude)
-                minLong = min(minLong, $0.longitude)
+//                maxLati = max(maxLati, $0.latitude)
+//                minLati = min(minLati, $0.latitude)
+//                maxLong = max(maxLong, $0.longitude)
+//                minLong = min(minLong, $0.longitude)
                 
                 annotations.append(MKPointAnnotation(title: $0.name, coordinate: CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)))
             }
         
-        mapView.addAnnotations(annotations)
-        
-        let middleLati = (maxLati + minLati) / 2
-        let middleLong = (maxLong + minLong) / 2
-        let center = CLLocationCoordinate2D(latitude: middleLati, longitude: middleLong)
-        
-        // (큰lati - 작은lati) * (큰lon - 작은lon)
-        let longitudinalMeters = ((maxLong - minLong) * 100000) // 경도
-        let latitudinalMeters = ((maxLati - minLati) * 100000) +  50 // 위도
-        
-        mapView.region = MKCoordinateRegion(center: center, latitudinalMeters: latitudinalMeters, longitudinalMeters: longitudinalMeters)
+//        mapView.addAnnotations(annotations)
+//        
+//        let middleLati = (maxLati + minLati) / 2
+//        let middleLong = (maxLong + minLong) / 2
+//        let center = CLLocationCoordinate2D(latitude: middleLati, longitude: middleLong)
+//        
+//        // (큰lati - 작은lati) * (큰lon - 작은lon)
+//        let longitudinalMeters = ((maxLong - minLong) * 100000) // 경도
+//        let latitudinalMeters = ((maxLati - minLati) * 100000) +  50 // 위도
+//        
+//        mapView.region = MKCoordinateRegion(center: center, latitudinalMeters: latitudinalMeters, longitudinalMeters: longitudinalMeters)
+        mapView.showAnnotations(annotations, animated: true)
+        // 처음에는 직접 어노테이션의 경도 위도 최대 최소 값을 찾아 직접 화면 범위를 구했습니다
+        // 이후 showAnnotations(annotations, animated: true)을 알게 되어 수정했습니다.
     }
     
     @objc
