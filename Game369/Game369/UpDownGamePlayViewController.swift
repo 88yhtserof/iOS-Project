@@ -75,7 +75,7 @@ class UpDownGamePlayViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        let id = "CircleCollectionViewCell"
+        let id = CircleCollectionViewCell.identifier
         let xib = UINib(nibName: id, bundle: nil)
         collectionView.register(xib, forCellWithReuseIdentifier: id)
         
@@ -121,7 +121,7 @@ extension UpDownGamePlayViewController: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CircleCollectionViewCell", for: indexPath) as? CircleCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CircleCollectionViewCell.identifier, for: indexPath) as? CircleCollectionViewCell else {
             return UICollectionViewCell()
         }
         

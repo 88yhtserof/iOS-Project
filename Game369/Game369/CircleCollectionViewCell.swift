@@ -18,6 +18,8 @@ class CircleCollectionViewCell: UICollectionViewCell, ListCellConfigurable {
         }
     }
     
+    static let identifier = String(describing: CircleCollectionViewCell.self)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

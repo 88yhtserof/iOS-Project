@@ -59,7 +59,7 @@ class UpDownGameViewController: UIViewController {
         guard let maxNumber = Int(maxTextField.text ?? "") else { return }
         view.endEditing(true)
         
-        let id = "UpDownGamePlayViewController"
+        let id = UpDownGamePlayViewController.identifier
         let storyboardMain = UIStoryboard(name: "Main", bundle: nil)
         guard let upDownGamePlayVC = storyboardMain.instantiateViewController(withIdentifier: id) as? UpDownGamePlayViewController else { return }
         upDownGamePlayVC.maxNumber = maxNumber
