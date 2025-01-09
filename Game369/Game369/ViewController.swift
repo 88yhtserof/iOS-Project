@@ -7,21 +7,18 @@
 
 import UIKit
 
-// game369 클래스 만들기
-// game 클래스를 먼저 만들고 그 아래 369 클래스 만들기
-
 class ViewController: UIViewController {
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var resultTextView: UITextView!
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var baseStackView: UIStackView!
     
-    private let numbers: [Int] = Array(1...120)
-    private lazy var selectedNumber: Int = numbers.count
-    private var countClap: Int = 0 {
+    private var game369 = Game369(max: 120)
+    private lazy var selectedNumber: Int = game369.max
+    private var result: String = "" {
         didSet {
-            resultLabel.isHidden = false
-            resultLabel.text = String(format: "숫자 %d까지 총 박수는 %d번 입니다.", selectedNumber, countClap)
+            resultTextView.text = result
+            resultLabel.text = String(format: "숫자 %d까지 총 박수는 %d번 입니다.", selectedNumber, game369.clapCount)
         }
     }
     
@@ -49,18 +46,8 @@ class ViewController: UIViewController {
     }
     
     private func configureTextView(row: Int) {
-        let max = numbers.count - row
-        resultTextView.text = (1...max)
-            .map{ String($0) }
-            .map{
-                var str = $0
-                str = str.replacingOccurrences(of: "3", with: "👏")
-                str = str.replacingOccurrences(of: "6", with: "👏")
-                str = str.replacingOccurrences(of: "9", with: "👏")
-                countClap += str.filter{ $0 == "👏" }.count
-                return str
-            }
-            .joined(separator: " ")
+        let max = game369.max - row
+        result = game369.play(max)
     }
     
     @IBAction func viewDidTapped(_ sender: UITapGestureRecognizer) {
@@ -68,9 +55,10 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - PickView Delegate, DataSource
 extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return numbers.count
+        return game369.max
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -78,13 +66,12 @@ extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let index = (numbers.count - 1) - row
-        return String(numbers[index])
+        let index = (game369.max - 1) - row
+        return String(game369.numbers[index])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        countClap = 0
-        selectedNumber = numbers.count - row
+        selectedNumber = game369.max - row
         configureTextView(row: row)
     }
 }
