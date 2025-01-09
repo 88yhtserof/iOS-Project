@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  Game369ViewController.swift
 //  Game369
 //
 //  Created by 임윤휘 on 1/9/25.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Game369ViewController: UIViewController {
     @IBOutlet var inputTextField: UITextField!
     @IBOutlet var resultTextView: UITextView!
     @IBOutlet var resultLabel: UILabel!
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 }
 
 //MARK: - PickView Delegate, DataSource
-extension ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
+extension Game369ViewController:  UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return game369.max
     }
