@@ -136,6 +136,68 @@
             </objects>
             <point key="canvasLocation" x="887.78625954198469" y="-27.464788732394368"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="VpH-rF-VfA">
+            <objects>
+                <viewController id="2c2-c4-zGk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z7Z-pC-JTn">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="나의 닉네임 입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bpv-Pj-9Kz">
+                                <rect key="frame" x="20" y="79" width="289" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9XZ-ON-wLu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="^^" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rav-ly-0Ng">
+                                <rect key="frame" x="329" y="79" width="44" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8rr-cd-uhf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="swr-yh-RUU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayj-YS-kbZ">
+                                <rect key="frame" x="159" y="322" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <segue destination="TfG-eM-S91" kind="presentation" id="SDv-GT-9wS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bUt-xI-Xul"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rav-ly-0Ng" firstAttribute="top" secondItem="bUt-xI-Xul" secondAttribute="top" constant="20" id="3rh-Yc-isI"/>
+                            <constraint firstItem="Rav-ly-0Ng" firstAttribute="leading" secondItem="bpv-Pj-9Kz" secondAttribute="trailing" constant="20" id="MGJ-it-OqN"/>
+                            <constraint firstItem="bpv-Pj-9Kz" firstAttribute="leading" secondItem="bUt-xI-Xul" secondAttribute="leading" constant="20" id="ZTT-Gx-Ce1"/>
+                            <constraint firstItem="bUt-xI-Xul" firstAttribute="trailing" secondItem="Rav-ly-0Ng" secondAttribute="trailing" constant="20" id="m8U-b1-UXg"/>
+                            <constraint firstItem="bpv-Pj-9Kz" firstAttribute="top" secondItem="bUt-xI-Xul" secondAttribute="top" constant="20" id="pA1-se-F5p"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zs-y8-qoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1849.6183206106869" y="-27.464788732394368"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="7Wm-Ue-gJW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="TfG-eM-S91" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="l77-Yu-Fbp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIE-nN-KYN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2641" y="-8"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
